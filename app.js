@@ -3,7 +3,7 @@ const app = express()
 const monk = require('monk')
 const bodyParser = require('body-parser')
 
-const mainDB = monk('localhost/hello-world')
+const mainDB = monk(`${process.env.DATABASE_URL}/hello-world`)
 const myCollection = mainDB.get('my-collection')
 
 app.use(bodyParser.urlencoded({ extended: false }))
